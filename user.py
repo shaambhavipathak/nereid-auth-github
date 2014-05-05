@@ -4,10 +4,10 @@
 
     Github based user authentication code
 
-    :copyright: (c) 2012-2013 by Openlabs Technologies & Consulting (P) LTD
+    :copyright: (c) 2012-2014 by Openlabs Technologies & Consulting (P) LTD
     :license: GPLv3, see LICENSE for more details.
 """
-from nereid import url_for, flash, redirect, current_app
+from nereid import url_for, flash, redirect, current_app, route
 from nereid.globals import session, request
 from nereid.signals import login, failed_login
 from flask.ext.oauth import OAuth
@@ -62,6 +62,7 @@ class NereidUser:
     github_url = fields.Char('Github URL')
 
     @classmethod
+    @route("/auth/github", methods=["GET"])
     def github_login(cls):
         """
         The URL to which a new request to authenticate to github begins
@@ -81,6 +82,7 @@ class NereidUser:
         )
 
     @classmethod
+    @route("/auth/github-authorized-login", methods=["GET"])
     def github_authorized_login(cls):
         """
         Authorized handler to which github will redirect the user to

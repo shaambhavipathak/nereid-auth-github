@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-#This file is part of Tryton.  The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+# This file is part of Tryton.  The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
 
 from setuptools import setup, Command
 import re
@@ -63,6 +63,7 @@ minor_version = int(minor_version)
 requires = [
     'flask-oauth',
     'requests',
+    'trytond_nereid>3.0.7.0, <3.1',
 ]
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res|webdav)(\W|$)', dep):
@@ -90,8 +91,8 @@ setup(
         'trytond.modules.nereid_auth_github.tests',
     ],
     package_data={
-        'trytond.modules.nereid_auth_github': info.get('xml', [])
-                + ['tryton.cfg'],
+        'trytond.modules.nereid_auth_github':
+            info.get('xml', []) + ['tryton.cfg'],
     },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
