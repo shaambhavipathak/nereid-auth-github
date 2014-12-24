@@ -4,11 +4,11 @@
 
     GitHub based authentication for nereid
 
-    :copyright: (c) 2012-2013 by Openlabs Technologies & Consulting (P) LTD
+    :copyright: (c) 2012-2014 by Openlabs Technologies & Consulting (P) LTD
     :license: GPLv3, see LICENSE for more details.
 """
 from trytond.pool import Pool
-from .user import Website, NereidUser
+from user import Website, NereidUser
 
 
 def register():
