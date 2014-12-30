@@ -2,12 +2,11 @@ language: python
 virtualenv:
   system_site_packages: true
 python:
-  - "2.6"
-  - "2.7"
-before_install:
-  - sudo apt-get install python-lxml
-install:
-  - python setup.py install
-  - pip install flake8
-script:
-  - flake8 .
+  - 2.7
+script: make test-$TEST_CMD
+env:
+  - TEST_CMD="sqlite"
+  - TEST_CMD="flake8"
+notifications:
+  email:
+  - ci-notify@openlabs.co.in
